@@ -1,0 +1,60 @@
+---
+title: "设计系统建设"
+subtitle: "从 Token 体系到组件治理的全链路设计基础设施"
+role: "Design System Lead"
+year: "2023–2025"
+tags: ["Design Tokens", "组件抽象", "Figma Variables", "工程协作"]
+coverImage: "/images/work/design-system/cover.png"
+---
+
+## 项目背景
+
+多产品线并行开发下，视觉和交互规范出现碎片化问题：不同团队使用不同的颜色命名方式，相似组件有多套独立实现，设计稿和工程实现之间缺乏统一的「翻译语言」，维护成本随团队规模持续升高。
+
+## 核心判断
+
+**设计系统的价值不是统一外观，而是统一决策成本。**
+
+一套好的设计系统，是设计师和工程师之间共享的语言。Token 分层解决的是「为什么这里用这个颜色」的问题，不只是「用什么颜色」。
+
+## Token 体系架构
+
+建立四层 Token 结构：
+
+```
+Base Token      → 原始值（#04153F）
+Alias Token     → 语义命名（brand-primary）
+Semantic Token  → 场景语义（button-background-default）
+Component Token → 组件专属（nav-item-active-bg）
+```
+
+每一层都有明确的使用范围和修改规则，避免在错误层级做修改导致意外影响。
+
+## Figma Variables 映射
+
+将 Token 体系与 Figma Variables 打通：
+
+- 设计侧使用 Variables 而非硬编码颜色
+- Variables 命名与工程 token 命名保持一致
+- 主题切换（多品牌/多端）通过 Variable Mode 实现
+
+## 组件抽象层级
+
+```
+Element      → 最小单元（Icon、Avatar）
+Component    → 原子组件（Button、Input）
+Module       → 业务组合（FormGroup、DataCard）
+Template     → 页面框架（ListPage、DetailPage）
+```
+
+边界清晰的层级定义，减少「这个该放在哪层」的反复讨论。
+
+## 治理机制
+
+- 变更日志与版本管理
+- 设计侧 Figma 更新 → 工程侧同步流程
+- 组件文档与使用规范
+
+---
+
+*内容持续完善中*
